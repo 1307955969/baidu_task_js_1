@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>污染城市列表</h3>
+<ul id="aqi-list">
+    <!--
+        <li>第一名：福州（样例），10</li>
+          <li>第二名：福州（样例），10</li> -->
+</ul>
+<button id="btn">刷新数据</button>
+<button id="btn2">新增加城市</button>
+<input type="text" placeholder="城市" id="city">
+
+</body>
+<script type="text/javascript">
+    (function () {
+        var aqiData = [
+            ["北京", 90],
+            ["上海", 50],
+            ["福州", 10],
+            ["广州", 50],
+            ["成都", 90],
+            ["西安", 100]
+        ];
+        var city = document.getElementById('city');
+        var ul = document.getElementById('aqi-list');
+        var btn1 = document.getElementById('btn');
+        var btn2 = document.getElementById('btn2');
+        btn1.onclick = function () {
+            for (var i = 0; i < aqiData.length; i++) {
+                var li = document.createElement("li");
+                ul.appendChild(li);
+                li.innerHTML = aqiData[i];
+            }
+        }
+        btn2.onclick = function () {
+            var city = document.getElementById('city');
+            var pattem = /[\u4e00-\u9fa5]/ig;
+            var pattem2 = /^-?[1-9]\d*$/;
+            var d=city.value.match(pattem2);
+            var c = city.value.match(pattem);
+            aqiData.push([c,d]);
+            alert(aqiData);
+        }
+
+    })();
+</script>
+</html>
