@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE JAVASCRIPT TASK 01</title>
+</head>
+<body>
+
+<label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
+<button id="button">确认填写</button>
+
+<div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+<script type="text/javascript">
+    (function () {   //(文档加载之后匿名函数调用，但未被执行。所以后面要加上()来进行执行)
+        var btn=document.getElementById('button');
+        var aqi_input=document.getElementById('aqi-input');
+
+    btn.onclick=function () {
+        if(isNaN(aqi_input.value)){ //判断得到的值是否为Num类型
+            alert("请输入正确的数值");
+        }
+        else {
+            document.getElementById('aqi-display').innerHTML=aqi_input.value;
+        }
+    }
+
+
+
+    })();
+</script>
+
+</body>
+</html>
